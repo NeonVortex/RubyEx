@@ -1,0 +1,53 @@
+all-ex.rb requires all of the files for convenient purpose.
+
+hash-ex.rb:
+- Addition operator added. Simply call Hash.merge
+
+  Sample code:
+  a = {'a'=>1}
+  b = a + {'b'=>2}				#b = {'a'=>1, 'b'=>2}
+  
+string-ex.rb
+- Addition operator overridden. Added String + Integer.
+  If string is a char (only one character in in), string + integer will act as addition of char code.
+  If string has more than one character, it will add integer literally.
+  
+  Sample code:
+  'a' + 1						#'b'
+  'aa' + 1						#'aa1'
+  'aa' + 'bb'					#'aabb'
+  
+- Defined String#to_proc
+  Similar to Symbol#to_proc. Parameters should be written as $0,$1,$2,...
+  
+  Sample code:
+  #Sample 1
+  foo = '$0+1'
+  foo.call(1)					#2
+  
+  #Sample 2
+  foo = '$1**2'
+  foo[0,2]						#4; $0 is not ignore but not in calculation
+  
+  #Sample 3
+  foo = '$0.capitalize + $1'
+  foo['hello','world']			#'Helloworld'
+  
+  #Sample 4
+  [1,2].map(&'$0+1')			#[2,3]
+  
+  #Sample 5
+  [1,2,3].inject(&'+')			#6; same as [1,2,3].inject(&:+)
+  
+  #Sample 6
+  ['hello','world'].map(&'$0.capitalize').inject(&'+')
+  								#'HelloWorld'
+  
+  #Sample 7
+  [[1,2],[3,4]].map(&'+')		#[3,7]
+  
+  #Sample 8
+  [[[33,44],1],[[55,66],0]].map(&'$0[$1]').inject(&'+')
+  								#99; 99 = [44,55].inject(&:+)
+  Seperate lines of code can be divided by ';'
+  
