@@ -1,13 +1,13 @@
 class String
     
-    BinaryOperator = ['+','-','*','/','[]','<<','>>','<','>','>=','<=','==','===','=~','||','&&','||=']
+    BINARY_OPERATOR = ['+','-','*','/','[]','<<','>>','<','>','>=','<=','==','===','=~','||','&&','||=']
     
     def to_proc
         code_str = self.strip
         
         #Fill up missing operands/args
         case code_str
-        when *BinaryOperator                                        #if it is a single binary operator, fill two operands
+        when *BINARY_OPERATOR                                       #if it is a single binary operator, fill two operands
             code_str = '$0' + code_str + '$1'
         when /^[\+\-\*\/\<\=\>\|\&\.]/                              #if it starts with operator, fill first operand
             code_str = '$0' + (code_str[0,1] == '?' ? ' ' : '') + code_str
