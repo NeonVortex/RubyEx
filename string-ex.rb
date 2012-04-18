@@ -9,7 +9,7 @@ class String
         case code_str
         when *BINARY_OPERATOR                                       #if it is a single binary operator, fill two operands
             code_str = '$0' + code_str + '$1'
-        when /^[\+\-\*\/\<\=\>\|\&\.]/                              #if it starts with operator, fill first operand
+        when /^[\+\-\*\/\<\=\>\|\&\.\?]/                              #if it starts with operator, fill first operand
             code_str = '$0' + (code_str[0,1] == '?' ? ' ' : '') + code_str
         end
         
