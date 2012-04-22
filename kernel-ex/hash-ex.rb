@@ -7,13 +7,13 @@ class Hash
 	
 	class << self
 	  alias_method :__new__,:new
-	  def new(obj=nil,&block)
-	    if obj && block && block.arity == 1
-	      rval = __new__(obj)
+	  def new(*obj,&block)
+	    if obj.size == 1 && block && block.arity == 1
+	      rval = __new__(obj[0])
 	      yield rval
 	      rval
 	    else
-	      __new__(obj,&block)
+	      __new__(*obj,&block)
 	    end
 	  end
 	end
