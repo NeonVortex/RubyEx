@@ -1,6 +1,6 @@
-all-ex.rb requires all of the files for convenient purpose.
+rb-ex.rb requires all of the files for convenient purpose.
 
-hash-ex.rb:
+kernel/hash-ex.rb:
 - Addition operator added. Simply call Hash.merge
 
   Example:
@@ -13,7 +13,7 @@ hash-ex.rb:
   hash = Hash.new(100){|h| h[:x] = 10}
                               #{:x => 10} with default value 100
 
-string-ex.rb
+kernel/string-ex.rb
 - Addition operator overridden. Added String + Integer.
   If string is a char (only one character in in), string + integer will act as addition of char code.
   If string has more than one character, it will add integer literally.
@@ -61,7 +61,7 @@ string-ex.rb
   ['hello','world'].map(&'$0.capitalize; $0+" "')
                               #"Hello World "
   
-dep-hash.rb
+hb-lib/dep-hash.rb
 - A hash type with any depth can be easily assigned (vivid hash)
   dp = DepHash.new
   dp[:a][:b][:c] = 10
