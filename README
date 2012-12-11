@@ -1,5 +1,3 @@
-rb-ex.rb requires all of the files for convenient purpose.
-
 hash-ex.rb:
 - Addition operator added. Simply call Hash.merge
 
