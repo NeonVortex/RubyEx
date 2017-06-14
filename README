@@ -1,3 +1,5 @@
+Edit June 14, 2017 - Due to the danger of monkey patching, only hash-ex is recommended. No longer maintained.
+
 hash-ex.rb:
 - Addition operator added. Simply call Hash.merge
 
